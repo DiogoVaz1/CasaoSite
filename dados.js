@@ -1,0 +1,84 @@
+// Gerado a partir de dados-casao.json — editar o JSON fonte, não este ficheiro
+const DADOS = {
+  nome: "O Casão",
+  tipo: "Restaurante de cozinha alentejana",
+  slogan: null,
+  telefone: "+351284475307",
+  telefoneFmt: "+351 284 475 307",
+  whatsapp: null,
+  morada: {
+    rua: "R. Joaquim Henrique da Silva 4",
+    cp: "7920-369",
+    localidade: "Vila Nova da Baronia"
+  },
+  gps: { lat: 38.2906942, lng: -8.0373915 },
+  googleMapsUrl: "https://maps.google.com/?cid=16794146122304720845",
+  rating: { media: 4.4, total: 465 },
+  horarios: {
+    segunda: [["10:00", "00:00"]],
+    terca:   null,
+    quarta:  [["10:00", "00:00"]],
+    quinta:  [["10:00", "00:00"]],
+    sexta:   [["10:00", "00:00"]],
+    sabado:  [["10:00", "23:00"]],
+    domingo: [["11:00", "15:00"]]
+  },
+  reviews: [
+    {
+      texto: "Great local restaurant with authentic Alentejo food and good service and prices.",
+      autor: null,
+      idioma: "en"
+    },
+    {
+      texto: "A place for genuine flavours of Alentejo. A simple menu, but a solid sampler of the cuisine of the southern plains.",
+      autor: null,
+      idioma: "en"
+    },
+    {
+      texto: "For the dessert, take the house speciality. It’s a MUST HAVE!",
+      autor: null,
+      idioma: "en"
+    }
+  ],
+  historia: null,
+  reservasGrupos: true,
+  destaques: [
+    "Carne de porco à alentejana",
+    "Ensopado de borrego",
+    "Sericaia com ameixa",
+    "Doce da casa"
+  ],
+  ementa: {
+    "Entradas": [
+      { nome: "Pão",       descricao: null, preco: null, meiaDose: null },
+      { nome: "Queijo",    descricao: null, preco: null, meiaDose: null },
+      { nome: "Azeitonas", descricao: null, preco: null, meiaDose: null },
+      { nome: "Torresmos", descricao: null, preco: null, meiaDose: null },
+      { nome: "Presunto",  descricao: null, preco: null, meiaDose: null }
+    ],
+    "Carne": [
+      { nome: "Carne de porco à alentejana",    descricao: null, preco: null, meiaDose: null },
+      { nome: "Ensopado de borrego",             descricao: null, preco: null, meiaDose: null },
+      { nome: "Medalhões com natas e cogumelos", descricao: null, preco: null, meiaDose: null },
+      { nome: "Lombinhos grelhados",             descricao: null, preco: null, meiaDose: null },
+      { nome: "Secretos grelhados",              descricao: null, preco: null, meiaDose: null },
+      { nome: "Lagartos grelhados",              descricao: null, preco: null, meiaDose: null }
+    ],
+    "Peixe": [
+      { nome: "Bacalhau espiritual", descricao: null, preco: null, meiaDose: null },
+      { nome: "Bacalhau à posta",    descricao: null, preco: null, meiaDose: null }
+    ],
+    "Sobremesas": [
+      { nome: "Sericaia com ameixa",           descricao: null, preco: null, meiaDose: null },
+      { nome: "Doce da casa",                   descricao: null, preco: null, meiaDose: null },
+      { nome: "Pudim de ovos",                  descricao: null, preco: null, meiaDose: null },
+      { nome: "Mousse de chocolate",            descricao: null, preco: null, meiaDose: null },
+      { nome: "Cheesecake de frutos vermelhos", descricao: null, preco: null, meiaDose: null },
+      { nome: "Molotof",                        descricao: null, preco: null, meiaDose: null },
+      { nome: "Fruta da época",                 descricao: null, preco: null, meiaDose: null }
+    ]
+  },
+  vinhos: { tipo: "regional", lista: null },
+  semSopas: true,
+  semPratoDoDia: true
+};

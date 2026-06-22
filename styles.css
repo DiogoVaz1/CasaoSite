@@ -1,0 +1,532 @@
+/* ============================================================
+   O Casão — Direção "Cal e Barra"
+   Paleta ancorada nas casas caiadas alentejanas:
+   cal branca, barra azul pintada, trigo/ocre da planície, barro.
+   ============================================================ */
+
+:root {
+  --cal:      #F6F3EC;  /* parede caiada */
+  --cal-2:    #EDE7DA;
+  --azul:     #1E5A78;  /* barra pintada das casas */
+  --azul-esc: #16435A;
+  --ocre:     #C8922E;  /* trigo maduro */
+  --trigo:    #E3C06A;
+  --barro:    #A6522C;  /* telha / barro cozido */
+  --carvao:   #2B2622;  /* texto */
+  --carvao-2: #5C544B;  /* texto secundário */
+  --linha:    #E2DACB;  /* divisórias subtis */
+  --branco:   #FFFDF8;
+
+  --fonte-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --fonte-corpo: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --container: 1080px;
+  --raio: 4px;
+  --sombra: 0 1px 3px rgba(43, 38, 34, .08), 0 8px 24px rgba(43, 38, 34, .06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--carvao);
+  background: var(--cal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* espaço para a barra sticky no fundo (mobile) + safe-area do iPhone */
+  padding-bottom: calc(62px + env(safe-area-inset-bottom));
+}
+
+a { color: var(--azul); }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ───────── Botões ───────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 13px 22px;
+  border-radius: var(--raio);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .12s ease, background .15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primario {
+  background: var(--azul);
+  color: #fff;
+}
+.btn-primario:hover { background: var(--azul-esc); }
+.btn-secundario {
+  background: transparent;
+  color: var(--azul);
+  border-color: var(--azul);
+}
+.btn-secundario:hover { background: rgba(30, 90, 120, .08); }
+
+/* ============================================================
+   HERO — planície alentejana ilustrada (sem foto real ainda)
+   ============================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FBF8F1 0%, var(--cal) 55%);
+  text-align: center;
+  /* Mobile: ecrã cheio para uma "chegada" imersiva */
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 20px 200px;
+}
+.hero-ceu { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-planicie {
+  position: absolute;
+  /* assenta acima da barra fixa de baixo (mobile), para a cena não ficar tapada */
+  bottom: calc(60px + env(safe-area-inset-bottom));
+  left: 0;
+  width: 100%;
+  height: 170px;
+}
+.hero-sol {
+  position: absolute;
+  top: 36px; right: 14%;
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #F2D98A 0%, #EBC868 60%, rgba(235,200,104,0) 72%);
+  opacity: .85;
+}
+
+.hero-conteudo { position: relative; z-index: 1; max-width: 640px; margin-inline: auto; }
+.hero-sobrenome {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--barro);
+  margin-bottom: 10px;
+}
+.hero-nome {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(3.4rem, 16vw, 6rem);
+  line-height: .92;
+  color: var(--carvao);
+  letter-spacing: -.01em;
+}
+.hero-prova {
+  margin-top: 18px;
+  font-size: .98rem;
+  color: var(--carvao-2);
+}
+.hero-prova strong { color: var(--carvao); }
+.estrelas { color: var(--ocre); letter-spacing: 2px; }
+.estrela-meia { opacity: .45; }
+.hero-cita {
+  font-family: var(--fonte-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--carvao);
+  margin: 20px auto 28px;
+  max-width: 460px;
+}
+.hero-acoes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-badge-linha { margin-top: 22px; }
+
+/* Indicador "deslize" — convida ao scroll (sensação de ecrã cheio) */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--carvao-2);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  animation: flutua 1.8s ease-in-out infinite;
+}
+.hero-scroll svg { stroke: var(--azul); }
+@keyframes flutua {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 6px); }
+}
+
+/* ───────── Badge aberto/fechado ───────── */
+#badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  padding: 7px 15px;
+  border-radius: 999px;
+}
+#badge::before {
+  content: "";
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.badge-aberto { background: #E3EFE4; color: #2C6B3F; }
+.badge-fechado { background: #F1E3DF; color: #9A4630; }
+
+/* ============================================================
+   REVELAÇÃO NO SCROLL — fade + subida suave
+   Gate .js-reveal: só esconde quando o JS está ativo (sem flash,
+   e sem JS o conteúdo fica sempre visível).
+   ============================================================ */
+.js-reveal .revelar {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22, .61, .36, 1);
+}
+.js-reveal .revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .revelar {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   BARRA CAL — elemento assinatura (rodapé pintado das casas)
+   ============================================================ */
+.barra-cal {
+  height: 14px;
+  background:
+    repeating-linear-gradient(90deg, var(--azul) 0 38px, var(--azul-esc) 38px 40px);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.18);
+}
+
+/* ============================================================
+   SECÇÕES
+   ============================================================ */
+.seccao { padding: 56px 0; }
+.seccao-ementa { background: var(--branco); }
+.seccao-etiqueta {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--barro);
+  margin-bottom: 8px;
+}
+.seccao-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+  line-height: 1.05;
+  color: var(--carvao);
+}
+.seccao-intro {
+  color: var(--carvao-2);
+  margin-top: 10px;
+  max-width: 540px;
+}
+
+/* ───────── Especialidades ───────── */
+.espec-dica {
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--carvao-2);
+  margin-top: 8px;
+}
+/* Mobile: carrossel horizontal full-bleed com scroll-snap (gesto táctil) */
+.espec-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 80%;
+  gap: 14px;
+  margin: 16px -20px 0;
+  padding: 4px 20px 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.espec-grid::-webkit-scrollbar { display: none; }
+.espec-card { scroll-snap-align: center; }
+.espec-card {
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+.espec-foto { position: relative; aspect-ratio: 16 / 10; background: var(--cal-2); }
+.espec-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.espec-foto-ph {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+  color: #B9AE99;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: repeating-linear-gradient(45deg, #EFE9DC 0 10px, #ECE5D6 10px 20px);
+}
+.espec-foto-ph svg { width: 30px; height: 30px; opacity: .7; }
+.espec-info { padding: 16px 18px 20px; }
+.espec-info h3 {
+  font-family: var(--fonte-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--carvao);
+}
+.espec-ph-desc { color: var(--carvao-2); margin-top: 4px; }
+
+/* ───────── Ementa ───────── */
+.ementa-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0 22px;
+}
+.tab-btn {
+  font-family: var(--fonte-corpo);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--carvao-2);
+  background: transparent;
+  border: 1.5px solid var(--linha);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.tab-btn:hover { border-color: var(--azul); color: var(--azul); }
+.tab-btn.ativo {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: #fff;
+}
+.categoria-lista { display: none; }
+.categoria-lista.ativa { display: block; }
+.prato-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--linha);
+}
+.prato-nome {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--carvao);
+}
+.badge-meia {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--barro);
+  background: #F4E9DC;
+  padding: 2px 7px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.prato-desc { color: var(--carvao-2); font-size: .92rem; margin-top: 2px; }
+.prato-preco {
+  font-family: var(--fonte-display);
+  font-weight: 600;
+  color: var(--carvao);
+  white-space: nowrap;
+}
+.preco-ph { font-family: var(--fonte-corpo); font-weight: 500; font-size: .82rem; color: #B5A992; font-style: italic; }
+.vinhos-nota {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--linha);
+  color: var(--carvao-2);
+  font-style: italic;
+}
+
+/* ───────── Reviews ───────── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+.review-card {
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-left: 3px solid var(--ocre);
+  border-radius: var(--raio);
+  padding: 20px 22px;
+  box-shadow: var(--sombra);
+}
+.review-texto {
+  font-family: var(--fonte-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--carvao);
+}
+.review-autor { margin-top: 10px; font-size: .85rem; font-weight: 600; color: var(--carvao-2); }
+.reviews-link { margin-top: 22px; font-weight: 600; }
+
+/* ───────── Reservas ───────── */
+.seccao-reservas { background: var(--azul); }
+.seccao-reservas .seccao-titulo { color: var(--branco); }
+.reservas-box { text-align: center; max-width: 560px; }
+.reservas-box p { color: rgba(255,255,255,.9); margin: 14px 0 24px; }
+.seccao-reservas .btn-primario { background: var(--ocre); color: var(--carvao); }
+.seccao-reservas .btn-primario:hover { background: var(--trigo); }
+
+/* ───────── Localização ───────── */
+.local-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+.morada { font-style: normal; font-size: 1.05rem; line-height: 1.8; color: var(--carvao); }
+.local-sub {
+  font-family: var(--fonte-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 22px 0 10px;
+}
+.horarios-tabela { width: 100%; border-collapse: collapse; }
+.horarios-tabela td { padding: 9px 0; border-bottom: 1px solid var(--linha); font-size: .95rem; }
+.horarios-tabela td:last-child { text-align: right; color: var(--carvao-2); }
+.horarios-tabela tr.hoje td { font-weight: 700; color: var(--azul); }
+.horarios-tabela td.fechado { color: var(--barro); font-style: italic; }
+.local-mapa {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--raio);
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  box-shadow: var(--sombra);
+}
+.local-mapa iframe { display: block; }
+
+/* ───────── Rodapé ───────── */
+.rodape { background: var(--carvao); color: #D9D1C4; padding: 44px 0 28px; }
+.rodape a { color: #E8DFD0; }
+.rodape-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+.rodape-nome { font-family: var(--fonte-display); font-weight: 600; font-size: 1.5rem; color: #fff; }
+.rodape-tipo { color: #A89E8E; font-size: .9rem; margin: 2px 0 8px; }
+.rodape-links { display: flex; flex-direction: column; gap: 10px; }
+.rodape-links a { text-decoration: none; }
+.rodape-links a:hover { text-decoration: underline; }
+.rodape-fim {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rodape-priv { font-size: .8rem; color: #8E8576; }
+.rodape-credito { font-size: .8rem; color: #6F6757; }
+
+/* ============================================================
+   BARRA STICKY MOBILE
+   ============================================================ */
+.sticky-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  background: var(--branco);
+  border-top: 1px solid var(--linha);
+  box-shadow: 0 -2px 16px rgba(43,38,34,.12);
+  /* respeitar o home indicator / notch do iPhone */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.sticky-bar a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 56px;
+  padding: 8px 4px;
+  text-decoration: none;
+  color: var(--carvao);
+  font-size: .72rem;
+  font-weight: 600;
+  transition: background .15s ease;
+}
+.sticky-bar a:active { background: rgba(43,38,34,.06); }
+.sticky-bar a:first-child {
+  background: var(--azul);
+  color: #fff;
+}
+.sticky-bar a:first-child:active { background: var(--azul-esc); }
+
+/* ============================================================
+   DESKTOP / TABLET
+   ============================================================ */
+@media (min-width: 720px) {
+  /* Hero volta a bloco com altura natural; sem indicador de scroll */
+  .hero { min-height: 0; display: block; padding: 80px 20px 260px; }
+  .hero-planicie { height: 210px; bottom: 0; }
+  .hero-scroll { display: none; }
+  .espec-dica { display: none; }
+
+  /* Especialidades voltam a grelha (sem carrossel) */
+  .espec-grid {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin: 28px 0 0;
+    padding: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  .local-grid { grid-template-columns: 1fr 1.1fr; align-items: start; }
+  .rodape-grid { grid-template-columns: 1fr auto; }
+  .rodape-fim { flex-direction: row; justify-content: space-between; }
+  .seccao { padding: 76px 0; }
+  body { padding-bottom: 0; }
+  .sticky-bar { display: none; }
+}
+
+@media (min-width: 1000px) {
+  .espec-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  .hero-scroll { animation: none; }
+}
