@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Casa caiada alentejana: parede branca, barra azul, telhado de barro -->
+  <rect width="64" height="64" rx="12" fill="#F6F3EC"/>
+  <path d="M12 30 L32 14 L52 30 Z" fill="#A6522C"/>
+  <rect x="16" y="30" width="32" height="22" fill="#FFFDF8" stroke="#E2DACB" stroke-width="1.5"/>
+  <rect x="16" y="46" width="32" height="6" fill="#1E5A78"/>
+  <rect x="22" y="36" width="8" height="16" fill="#6E4A28"/>
+  <rect x="35" y="35" width="9" height="8" fill="#1E5A78" opacity="0.85"/>
+</svg>

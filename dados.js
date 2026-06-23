@@ -5,7 +5,9 @@ const DADOS = {
   slogan: null,
   telefone: "+351284475307",
   telefoneFmt: "+351 284 475 307",
-  whatsapp: null,
+  whatsapp: null,                 // ex.: "351284475307" (só dígitos, com indicativo)
+  whatsappMsg: "Olá! Gostava de reservar uma mesa n'O Casão.",
+  redes: null,                    // ex.: [{ tipo:"instagram", url:"https://..." }, { tipo:"facebook", url:"https://..." }]
   morada: {
     rua: "R. Joaquim Henrique da Silva 4",
     cp: "7920-369",

@@ -1,0 +1,13 @@
+{
+  "name": "O Casão — Cozinha alentejana",
+  "short_name": "O Casão",
+  "description": "Restaurante de cozinha alentejana em Vila Nova da Baronia.",
+  "lang": "pt-PT",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F6F3EC",
+  "theme_color": "#1E5A78",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

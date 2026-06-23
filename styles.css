@@ -41,6 +41,21 @@ body {
 
 a { color: var(--azul); }
 
+/* Salto para conteúdo (acessibilidade / teclado) */
+.skip-link {
+  position: absolute;
+  left: 12px; top: -60px;
+  z-index: 100;
+  background: var(--azul);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--raio);
+  text-decoration: none;
+  font-weight: 600;
+  transition: top .18s ease;
+}
+.skip-link:focus { top: 12px; }
+
 .container {
   width: 100%;
   max-width: var(--container);
@@ -73,6 +88,11 @@ a { color: var(--azul); }
   border-color: var(--azul);
 }
 .btn-secundario:hover { background: rgba(30, 90, 120, .08); }
+.btn-whatsapp { background: #1FA855; color: #fff; }
+.btn-whatsapp:hover { background: #178A44; }
+.reservas-wa { margin-top: 12px; }
+.seccao-reservas .btn-whatsapp { background: #1FA855; color: #fff; }
+.seccao-reservas .btn-whatsapp:hover { background: #178A44; }
 
 /* ============================================================
    HERO — planície alentejana ilustrada (sem foto real ainda)
@@ -440,6 +460,9 @@ a { color: var(--azul); }
 }
 .rodape-nome { font-family: var(--fonte-display); font-weight: 600; font-size: 1.5rem; color: #fff; }
 .rodape-tipo { color: #A89E8E; font-size: .9rem; margin: 2px 0 8px; }
+.rodape-redes { display: flex; gap: 14px; margin-top: 12px; }
+.rodape-redes a { display: inline-flex; color: #D9D1C4; }
+.rodape-redes a:hover { color: #fff; }
 .rodape-links { display: flex; flex-direction: column; gap: 10px; }
 .rodape-links a { text-decoration: none; }
 .rodape-links a:hover { text-decoration: underline; }
@@ -489,6 +512,22 @@ a { color: var(--azul); }
   color: #fff;
 }
 .sticky-bar a:first-child:active { background: var(--azul-esc); }
+.sticky-wa {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 56px;
+  padding: 8px 4px;
+  text-decoration: none;
+  background: #1FA855;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 600;
+}
+.sticky-wa:active { background: #178A44; }
 
 /* ============================================================
    DESKTOP / TABLET
@@ -529,4 +568,33 @@ a { color: var(--azul); }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
   .hero-scroll { animation: none; }
+}
+
+/* ============================================================
+   IMPRESSÃO — ementa imprimível (cliente pode imprimir/PDF)
+   ============================================================ */
+.cat-titulo-print { display: none; }
+
+@media print {
+  .sticky-bar, .sticky-wa, .hero-scroll, .hero-ceu, .barra-cal,
+  .local-mapa, .skip-link, .espec-dica, .ementa-tabs,
+  .hero-acoes, .seccao-reservas { display: none !important; }
+
+  body { padding: 0; background: #fff; color: #000; }
+  .hero { min-height: 0; padding: 24px 0 8px; }
+
+  .seccao { padding: 14px 0; }
+  /* Mostrar a ementa completa (todas as categorias), sem tabs */
+  .categoria-lista { display: block !important; margin-top: 10px; }
+  .cat-titulo-print {
+    display: block;
+    font-family: var(--fonte-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 14px 0 4px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 3px;
+  }
+  .js-reveal .revelar { opacity: 1 !important; transform: none !important; }
+  a { color: #000; text-decoration: none; }
 }

@@ -8,6 +8,11 @@
   <meta name="theme-color" content="#1E5A78">
   <link rel="canonical" href="https://ocasao.pt/">
 
+  <!-- Ícones / manifest -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="pt_PT">
@@ -56,10 +61,12 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#especialidades">Saltar para o conteúdo</a>
+
   <!-- ───────── HERO ───────── -->
   <header class="hero">
     <div class="hero-ceu" aria-hidden="true">
-      <svg class="hero-planicie" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <svg class="hero-planicie" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <g id="espiga" stroke="var(--ocre)" stroke-width="2.4" stroke-linecap="round" fill="none">
             <path d="M0,0 V-26"/>
@@ -245,6 +252,7 @@
         <p class="rodape-nome">O Casão</p>
         <p class="rodape-tipo">Cozinha alentejana · Vila Nova da Baronia</p>
         <p><a href="tel:+351284475307">+351 284 475 307</a></p>
+        <p class="rodape-redes" id="rodape-redes"><!-- redes sociais: gerado por app.js --></p>
       </div>
       <nav class="rodape-links" aria-label="Ligações úteis">
         <a href="#ementa">Ementa</a>
