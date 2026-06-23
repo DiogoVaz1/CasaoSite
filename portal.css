@@ -1,0 +1,256 @@
+/* ============================================================
+   Portal "Os nossos espaços" — Catering · O Casão · O Castelo
+   Mesma identidade "Cal e Barra" do site do Casão.
+   ============================================================ */
+:root {
+  --cal:      #F6F3EC;
+  --azul:     #1E5A78;
+  --azul-esc: #16435A;
+  --ocre:     #C8922E;
+  --trigo:    #E3C06A;
+  --barro:    #A6522C;
+  --carvao:   #2B2622;
+  --carvao-2: #5C544B;
+  --branco:   #FFFDF8;
+
+  --fonte-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --fonte-corpo: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.portal {
+  font-family: var(--fonte-corpo);
+  color: var(--carvao);
+  background: var(--cal);
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Salto para conteúdo */
+.skip-link {
+  position: absolute;
+  left: 12px; top: -60px;
+  z-index: 100;
+  background: var(--azul);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top .18s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ───────── Cabeçalho ───────── */
+.portal-cabec {
+  text-align: center;
+  padding: 22px 20px 18px;
+  background: linear-gradient(180deg, #FBF8F1, var(--cal));
+}
+.portal-sobrenome {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--barro);
+  margin-bottom: 6px;
+}
+.portal-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  line-height: 1;
+  color: var(--carvao);
+}
+.portal-intro { color: var(--carvao-2); margin-top: 6px; font-size: .95rem; }
+
+/* ───────── Grelha de painéis ───────── */
+.portal-grid {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.painel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: flex-grow .55s cubic-bezier(.22,.61,.36,1);
+}
+.painel + .painel { border-left: 2px solid var(--cal); }
+
+/* Fundo (placeholder em gradiente — trocar por foto: definir --bg com url(...)) */
+.painel-fundo {
+  position: absolute;
+  inset: 0;
+  background: var(--bg, #999);
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(.85) brightness(.5) contrast(.95);
+  transform: scale(1.01);
+  transition: filter .55s ease, transform .7s ease;
+}
+.painel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(43,38,34,.25), rgba(43,38,34,.6));
+  transition: opacity .55s ease;
+}
+
+/* Placeholders de cor por zona (substituir por fotos reais) */
+.painel-catering { --bg: linear-gradient(150deg, #C8922E 0%, #E3C06A 55%, #A6522C 100%); }
+.painel-casao    { --bg: linear-gradient(155deg, #2E7A9E 0%, #1E5A78 55%, #16435A 100%); }
+.painel-castelo  { --bg: linear-gradient(150deg, #9C8C72 0%, #A6522C 60%, #5C544B 100%); }
+
+/* Conteúdo */
+.painel-conteudo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+  color: #fff;
+  pointer-events: none;
+}
+.painel-etiqueta {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+}
+.painel-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+  line-height: 1;
+  text-shadow: 0 2px 18px rgba(0,0,0,.4);
+}
+.painel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,.7);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+/* ───────── Estado ATIVO (hover/teclado no desktop) ───────── */
+@media (hover: hover) and (pointer: fine) {
+  .portal-grid:hover .painel { flex-grow: .65; }
+  .painel:hover, .painel:focus-visible { flex-grow: 2.2; }
+
+  .painel:hover .painel-fundo,
+  .painel:focus-visible .painel-fundo { filter: none; transform: scale(1.05); }
+  .painel:hover .painel-overlay,
+  .painel:focus-visible .painel-overlay { opacity: .12; }
+  .painel:hover .painel-cta,
+  .painel:focus-visible .painel-cta { opacity: 1; transform: none; }
+}
+
+/* ───────── MOBILE / TÁTIL: 3 painéis a preencher o ecrã, SEM scroll ─────────
+   Tocar num painel seleciona-o (ganha cor); tocar no selecionado entra.
+   Classe ".ativa" gerida por portal.js. */
+@media (max-width: 719px), (hover: none) {
+  body.portal { height: 100svh; overflow: hidden; }
+  .portal-cabec, .portal-rodape { display: none; }   /* ecrã inteiro só para os painéis */
+  .portal-grid { flex-direction: column; height: 100svh; }
+  .painel { flex: 1 1 0; min-height: 0; }             /* três terços iguais */
+  .painel + .painel { border-left: none; border-top: 2px solid var(--cal); }
+
+  .painel.ativa .painel-fundo { filter: none; transform: scale(1.03); }
+  .painel.ativa .painel-overlay { opacity: .18; }
+  .painel.ativa .painel-cta { opacity: 1; transform: none; }   /* CTA só no selecionado */
+  .painel:not(.ativa) .painel-cta { opacity: 0; }
+}
+
+/* Antes de o JS correr, destacar o painel inicial (sem flash escuro) */
+@media (hover: none) {
+  .painel-ativo-inicial .painel-fundo { filter: none; }
+  .painel-ativo-inicial .painel-overlay { opacity: .18; }
+  .painel-ativo-inicial .painel-cta { opacity: 1; transform: none; }
+}
+
+/* ───────── Rodapé ───────── */
+.portal-rodape {
+  text-align: center;
+  padding: 14px 20px;
+  font-size: .78rem;
+  color: var(--carvao-2);
+  background: var(--cal);
+}
+.portal-rodape span { color: #9a917f; }
+
+/* Desktop: portal ocupa o ecrã, sem scroll */
+@media (min-width: 720px) and (hover: hover) {
+  body.portal { height: 100svh; overflow: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .painel, .painel-fundo, .painel-overlay, .painel-cta { transition: none; }
+  .painel:hover .painel-fundo, .painel:focus-visible .painel-fundo,
+  .painel.ativa .painel-fundo { transform: none; }
+}
+
+/* ============================================================
+   Página "Em breve" (stubs Catering / O Castelo)
+   ============================================================ */
+.em-breve {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  padding: 40px 24px;
+}
+.em-breve-etiqueta {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--barro);
+}
+.em-breve-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 10vw, 4rem);
+  line-height: 1;
+  color: var(--carvao);
+}
+.em-breve-texto { color: var(--carvao-2); max-width: 420px; line-height: 1.6; }
+.em-breve-voltar {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: var(--azul);
+  padding: 12px 22px;
+  border-radius: 4px;
+  transition: background .15s ease;
+}
+.em-breve-voltar:hover { background: var(--azul-esc); }
