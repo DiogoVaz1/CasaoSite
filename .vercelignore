@@ -1,0 +1,17 @@
+# Ficheiros que NÃO devem ir para produção (deploy mais leve e limpo)
+
+# Imagem-fonte da ilustração (6,3 MB, não usada no site)
+img_topo.png
+
+# Dados-fonte (o site carrega dados.js; o JSON é só para edição)
+dados-casao.json
+
+# Documentação interna / guias do cliente
+GUIA-CLIENTE.md
+*.md
+
+# Configuração de desenvolvimento (Claude Code, launch do preview)
+.claude/
+
+# Git
+.gitattributes

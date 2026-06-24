@@ -3,25 +3,233 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>O Castelo — Em breve | Vila Nova da Baronia</title>
-  <meta name="description" content="A página d'O Castelo está a ser preparada.">
-  <meta name="theme-color" content="#1E5A78">
-  <meta name="robots" content="noindex">
+  <title>O Castelo — Restaurante | Cozinha alentejana</title>
+  <meta name="description" content="O Castelo — restaurante de ambiente histórico no Alentejo. Ementa, horários e contactos brevemente.">
+  <meta name="theme-color" content="#6E2433">
+  <link rel="canonical" href="https://ocasao.pt/castelo.html">
+
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="O Castelo — Restaurante de ambiente histórico">
+  <meta property="og:description" content="Cozinha alentejana num castelo caiado. Em preparação.">
+  <meta property="og:url" content="https://ocasao.pt/castelo.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD Restaurant (só campos verificados; restantes a confirmar) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "O Castelo",
+    "servesCuisine": "Alentejana",
+    "url": "https://ocasao.pt/castelo.html",
+    "telephone": "+351964894175",
+    "address": { "@type": "PostalAddress", "addressLocality": "Alvito", "addressRegion": "Beja", "addressCountry": "PT" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 38.2577626, "longitude": -7.9921249 }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="portal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="castelo.css">
+  <script>document.documentElement.classList.add('js-reveal');</script>
 </head>
-<body class="portal">
-  <main class="em-breve">
-    <p class="em-breve-etiqueta">Restaurante · Vila Nova da Baronia</p>
-    <h1 class="em-breve-titulo">O Castelo</h1>
-    <p class="em-breve-texto">Estamos a preparar esta página. Volte em breve para conhecer a ementa, horários e contactos d'O Castelo.</p>
-    <a class="em-breve-voltar" href="index.html">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-      Voltar aos nossos espaços
+<body>
+
+  <a class="skip-link" href="#especialidades">Saltar para o conteúdo</a>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero">
+    <div class="hero-ceu" aria-hidden="true">
+      <svg class="hero-cena" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <rect id="m" width="15" height="13" fill="#FBF8F1" stroke="#D9CFBC" stroke-width="1.2"/>
+        </defs>
+
+        <!-- terreno / outeiro -->
+        <path d="M0,156 C320,140 620,150 720,146 C900,140 1180,152 1440,148 L1440,240 L0,240 Z" fill="#DED5C3" opacity="0.9"/>
+        <path d="M0,186 C360,172 700,184 1040,178 C1240,174 1340,182 1440,180 L1440,240 L0,240 Z" fill="#CFC4AE" opacity="0.55"/>
+
+        <!-- ciprestes (Alentejo) -->
+        <path d="M520,168 C512,150 514,124 520,112 C526,124 528,150 520,168 Z" fill="#5A5A3C"/>
+        <path d="M920,168 C912,152 914,128 920,116 C926,128 928,152 920,168 Z" fill="#5A5A3C"/>
+
+        <!-- muralha (curtina) -->
+        <rect x="586" y="120" width="268" height="48" fill="#FBF8F1" stroke="#D9CFBC" stroke-width="1.5"/>
+        <rect x="586" y="160" width="268" height="9" fill="#6E655A"/>
+        <use href="#m" x="588" y="108"/><use href="#m" x="614" y="108"/><use href="#m" x="640" y="108"/>
+        <use href="#m" x="796" y="108"/><use href="#m" x="822" y="108"/><use href="#m" x="848" y="108"/>
+
+        <!-- torre esquerda -->
+        <rect x="552" y="160" width="72" height="10" fill="#4A443C"/>
+        <rect x="556" y="96" width="64" height="72" fill="#FBF8F1" stroke="#D9CFBC" stroke-width="1.5"/>
+        <use href="#m" x="558" y="84"/><use href="#m" x="582" y="84"/><use href="#m" x="606" y="84"/>
+        <rect x="585" y="120" width="7" height="22" fill="#6E655A"/>
+
+        <!-- torre direita -->
+        <rect x="816" y="160" width="72" height="10" fill="#4A443C"/>
+        <rect x="820" y="96" width="64" height="72" fill="#FBF8F1" stroke="#D9CFBC" stroke-width="1.5"/>
+        <use href="#m" x="822" y="84"/><use href="#m" x="846" y="84"/><use href="#m" x="870" y="84"/>
+        <rect x="848" y="120" width="7" height="22" fill="#6E655A"/>
+
+        <!-- torre de menagem (keep) -->
+        <rect x="646" y="160" width="148" height="12" fill="#4A443C"/>
+        <rect x="650" y="78" width="140" height="90" fill="#FBF8F1" stroke="#D9CFBC" stroke-width="1.5"/>
+        <use href="#m" x="652" y="66"/><use href="#m" x="676" y="66"/><use href="#m" x="700" y="66"/>
+        <use href="#m" x="724" y="66"/><use href="#m" x="748" y="66"/><use href="#m" x="772" y="66"/>
+        <!-- janelas -->
+        <rect x="672" y="104" width="13" height="24" fill="#6E655A"/>
+        <rect x="755" y="104" width="13" height="24" fill="#6E655A"/>
+        <!-- portão em arco -->
+        <path d="M698,168 L698,142 Q720,120 742,142 L742,168 Z" fill="#5A4036"/>
+        <path d="M708,168 L708,146 Q720,132 732,146 L732,168 Z" fill="#3A2A22"/>
+
+        <!-- mastro e bandeira -->
+        <line x1="720" y1="78" x2="720" y2="56" stroke="#6E655A" stroke-width="3"/>
+        <path d="M720,58 L750,64 L720,70 Z" fill="#6E2433"/>
+      </svg>
+      <span class="hero-sol" aria-hidden="true"></span>
+    </div>
+
+    <div class="hero-conteudo">
+      <p class="hero-sobrenome" data-reveal>Restaurante · ambiente histórico</p>
+      <h1 class="hero-nome" data-reveal><span class="artigo">O</span>Castelo</h1>
+      <p class="hero-cita" data-reveal>Cozinha alentejana entre muralhas.</p>
+
+      <div class="hero-acoes" data-reveal>
+        <a class="btn btn-primario" href="tel:+351964894175">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Ligar
+        </a>
+        <a class="btn btn-secundario" href="https://www.google.com/maps/place/Pousada+Castelo+de+Alvito/@38.2577626,-7.9921249,17z" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Como chegar
+        </a>
+      </div>
+
+      <p class="hero-badge-linha" data-reveal><span id="badge" class="badge-fechado">A carregar horário…</span></p>
+    </div>
+
+    <a class="hero-scroll" href="#especialidades" aria-label="Ver mais">
+      <span>Deslize</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </a>
+  </header>
+
+  <div class="divisor-ameias" role="presentation"></div>
+
+  <main>
+    <!-- ───────── ESPECIALIDADES ───────── -->
+    <section class="seccao" id="especialidades" aria-labelledby="h-espec">
+      <div class="container">
+        <p class="seccao-etiqueta">Da nossa cozinha</p>
+        <h2 class="seccao-titulo" id="h-espec">Especialidades da casa</h2>
+        <p class="seccao-intro">Os pratos-âncora d'O Castelo — a confirmar com a casa.</p>
+        <p class="espec-dica" aria-hidden="true">deslize para ver →</p>
+        <div class="espec-grid" id="espec-grid"><!-- gerado por app.js --></div>
+      </div>
+    </section>
+
+    <div class="divisor-ameias" role="presentation"></div>
+
+    <!-- ───────── EMENTA ───────── -->
+    <section class="seccao seccao-ementa" id="ementa" aria-labelledby="h-ementa">
+      <div class="container">
+        <p class="seccao-etiqueta">À mesa</p>
+        <h2 class="seccao-titulo" id="h-ementa">Ementa</h2>
+        <p class="seccao-intro">Ementa em preparação. Categorias e pratos a confirmar com a casa.</p>
+        <div class="ementa-tabs" id="ementa-tabs" role="tablist" aria-label="Categorias da ementa" data-reveal></div>
+        <div class="ementa-conteudo" id="ementa-conteudo"></div>
+      </div>
+    </section>
+
+    <div class="divisor-ameias" role="presentation"></div>
+
+    <!-- ───────── RESERVAS ───────── -->
+    <section class="seccao seccao-reservas" id="reservas" aria-labelledby="h-reservas">
+      <div class="container reservas-box">
+        <p class="seccao-etiqueta">À sua espera</p>
+        <h2 class="seccao-titulo" id="h-reservas">Reservas e grupos</h2>
+        <p>Recebemos grupos, almoços de família e convívios. Ligue-nos para combinar a sua mesa.</p>
+        <a class="btn btn-primario" href="tel:+351964894175">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Ligar para reservar
+        </a>
+      </div>
+    </section>
+
+    <div class="divisor-ameias" role="presentation"></div>
+
+    <!-- ───────── LOCALIZAÇÃO ───────── -->
+    <section class="seccao" id="localizacao" aria-labelledby="h-local">
+      <div class="container">
+        <p class="seccao-etiqueta">Onde estamos</p>
+        <h2 class="seccao-titulo" id="h-local">Localização e horários</h2>
+        <div class="local-grid">
+          <div class="local-info">
+            <address class="morada">
+              Castelo de Alvito<br>
+              Alvito · Alentejo<br>
+              <a href="tel:+351964894175">+351 964 894 175</a>
+            </address>
+            <h3 class="local-sub">Horário</h3>
+            <table class="horarios-tabela">
+              <tbody id="horarios-tbody"><!-- gerado por app.js --></tbody>
+            </table>
+            <p class="horario-servicos">Pequeno-almoço · almoço · jantar</p>
+          </div>
+          <div class="local-mapa">
+            <iframe
+              title="Mapa — O Castelo, Castelo de Alvito"
+              src="https://www.google.com/maps?q=38.2577626,-7.9921249&hl=pt&z=16&output=embed"
+              width="100%" height="100%" style="border:0" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ───────── RODAPÉ ───────── -->
+  <footer class="rodape">
+    <div class="container rodape-grid">
+      <div>
+        <p class="rodape-nome">O Castelo</p>
+        <p class="rodape-tipo">Restaurante · ambiente histórico</p>
+        <p class="rodape-redes" id="rodape-redes"><!-- redes: gerado por app.js --></p>
+      </div>
+      <nav class="rodape-links" aria-label="Ligações úteis">
+        <a href="index.html">‹ Os nossos espaços</a>
+        <a href="#ementa">Ementa</a>
+        <a href="#localizacao">Onde estamos</a>
+        <a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener">Livro de Reclamações</a>
+        <a href="#privacidade">Privacidade</a>
+      </nav>
+    </div>
+    <div class="container rodape-fim">
+      <p id="privacidade" class="rodape-priv">Este site não usa cookies de publicidade nem rastreio de terceiros.</p>
+      <p class="rodape-credito">Site por Diogo Vaz</p>
+    </div>
+  </footer>
+
+  <!-- ───────── BARRA STICKY MOBILE ───────── -->
+  <nav class="sticky-bar" aria-label="Ações rápidas">
+    <a href="tel:+351964894175">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      <span>Ligar</span>
+    </a>
+    <a href="#localizacao">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Onde estamos</span>
+    </a>
+  </nav>
+
+  <script src="dados-castelo.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

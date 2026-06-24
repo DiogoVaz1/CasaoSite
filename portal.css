@@ -106,7 +106,7 @@ body.portal {
 /* Placeholders de cor por zona (substituir por fotos reais) */
 .painel-catering { --bg: linear-gradient(150deg, #C8922E 0%, #E3C06A 55%, #A6522C 100%); }
 .painel-casao    { --bg: linear-gradient(155deg, #2E7A9E 0%, #1E5A78 55%, #16435A 100%); }
-.painel-castelo  { --bg: linear-gradient(150deg, #9C8C72 0%, #A6522C 60%, #5C544B 100%); }
+.painel-castelo  { --bg: linear-gradient(150deg, #8A7E6A 0%, #6E2433 60%, #4A443C 100%); }
 
 /* Conteúdo */
 .painel-conteudo {

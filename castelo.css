@@ -1,0 +1,352 @@
+/* ============================================================
+   O Castelo — Direção "Pedra e Ameias"
+   Castelo alentejano caiado (estilo Pousada de Alvito):
+   cal-pedra branca, granito, vinho/borgonha nobre, ouro velho.
+   ============================================================ */
+
+:root {
+  --pedra:    #EAE3D5;  /* parede caiada / cal-pedra */
+  --pedra-2:  #DED5C3;
+  --granito:  #6E655A;  /* pedra de cunhal / granito */
+  --granito-2:#4A443C;
+  --vinho:    #6E2433;  /* borgonha — cor nobre, primária */
+  --vinho-esc:#551B27;
+  --ouro:     #B08A3E;  /* ouro velho / latão — acento */
+  --ouro-cl:  #CDA85A;
+  --carvao:   #2B2622;
+  --carvao-2: #5C544B;
+  --linha:    #D9CFBC;
+  --branco:   #FBF8F1;
+
+  --fonte-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --fonte-corpo: Georgia, "Times New Roman", "Iowan Old Style", serif;
+
+  --container: 1080px;
+  --raio: 3px;
+  --sombra: 0 1px 3px rgba(43,38,34,.08), 0 8px 24px rgba(43,38,34,.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--carvao);
+  background: var(--pedra);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(62px + env(safe-area-inset-bottom));
+}
+a { color: var(--vinho); }
+
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 20px; }
+
+/* Salto para conteúdo */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--vinho); color: #fff; padding: 10px 16px;
+  border-radius: var(--raio); text-decoration: none; font-weight: 700;
+  transition: top .18s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ───────── Botões ───────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--fonte-display);
+  font-weight: 600; font-size: .92rem; letter-spacing: .04em;
+  padding: 13px 24px; border-radius: var(--raio);
+  text-decoration: none; border: 2px solid transparent;
+  transition: transform .12s ease, background .15s ease, color .15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primario { background: var(--vinho); color: #fff; }
+.btn-primario:hover { background: var(--vinho-esc); }
+.btn-secundario { background: transparent; color: var(--vinho); border-color: var(--vinho); }
+.btn-secundario:hover { background: rgba(110,36,51,.08); }
+
+/* ============================================================
+   HERO — castelo caiado com torres ameiadas
+   ============================================================ */
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #F4EFE4 0%, var(--pedra) 58%);
+  text-align: center;
+  min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 48px 20px 200px;
+}
+.hero-ceu { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-cena {
+  position: absolute;
+  bottom: calc(60px + env(safe-area-inset-bottom));
+  left: 0; width: 100%; height: 200px;
+}
+.hero-sol {
+  position: absolute; top: 40px; right: 14%;
+  width: 78px; height: 78px; border-radius: 50%;
+  background: radial-gradient(circle, #EAD79C 0%, #DBC074 60%, rgba(219,192,116,0) 72%);
+  opacity: .8;
+}
+
+.hero-conteudo { position: relative; z-index: 1; max-width: 640px; margin-inline: auto; }
+.hero-sobrenome {
+  text-transform: uppercase; letter-spacing: .22em;
+  font-size: .72rem; font-weight: 700; color: var(--vinho);
+  margin-bottom: 14px;
+}
+.hero-nome {
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 12vw, 5rem);
+  line-height: 1; letter-spacing: .02em;
+  color: var(--carvao);
+}
+.hero-nome .artigo { display: block; font-size: .42em; letter-spacing: .3em; color: var(--granito); margin-bottom: .25em; }
+.hero-cita {
+  font-family: var(--fonte-display);
+  font-style: normal; font-weight: 400;
+  font-size: 1.05rem; letter-spacing: .03em;
+  color: var(--carvao); margin: 22px auto 30px; max-width: 460px;
+}
+.hero-acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Filete dourado sob o sobrenome */
+.hero-sobrenome::after {
+  content: ""; display: block; width: 54px; height: 2px;
+  background: var(--ouro); margin: 12px auto 0;
+}
+
+.hero-scroll {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  text-decoration: none; color: var(--carvao-2);
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .16em;
+  animation: flutua 1.8s ease-in-out infinite;
+}
+.hero-scroll svg { stroke: var(--vinho); }
+@keyframes flutua { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,6px); } }
+
+/* ───────── Nota / contacto a confirmar ───────── */
+.hero-nota {
+  margin-top: 24px; display: inline-block;
+  font-size: .82rem; color: var(--granito);
+  background: rgba(110,101,90,.1);
+  padding: 7px 16px; border-radius: 999px;
+}
+
+/* ───────── Badge aberto/fechado ───────── */
+.hero-badge-linha { margin-top: 24px; }
+#badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--fonte-corpo);
+  font-size: .9rem; font-weight: 600;
+  padding: 7px 15px; border-radius: 999px;
+}
+#badge::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+.badge-aberto { background: #E4EFE3; color: #2C6B3F; }
+.badge-fechado { background: #F0E2E1; color: var(--vinho); }
+
+/* ============================================================
+   REVELAÇÃO NO SCROLL
+   ============================================================ */
+.js-reveal .revelar {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
+}
+.js-reveal .revelar.visivel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .revelar { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ============================================================
+   FAIXA DE AMEIAS — elemento assinatura (divisor de secções)
+   ============================================================ */
+.divisor-ameias {
+  height: 20px;
+  background: var(--granito);
+  -webkit-mask:
+    repeating-linear-gradient(90deg, #000 0 26px, transparent 26px 44px) top / 100% 9px no-repeat,
+    linear-gradient(#000, #000) bottom / 100% 11px no-repeat;
+          mask:
+    repeating-linear-gradient(90deg, #000 0 26px, transparent 26px 44px) top / 100% 9px no-repeat,
+    linear-gradient(#000, #000) bottom / 100% 11px no-repeat;
+}
+
+/* ============================================================
+   SECÇÕES
+   ============================================================ */
+.seccao { padding: 58px 0; }
+.seccao-ementa { background: var(--branco); }
+.seccao-etiqueta {
+  text-transform: uppercase; letter-spacing: .2em;
+  font-size: .72rem; font-weight: 700; color: var(--ouro);
+  margin-bottom: 10px;
+}
+.seccao-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 700; font-size: clamp(1.7rem, 6vw, 2.4rem);
+  line-height: 1.1; letter-spacing: .02em; color: var(--carvao);
+}
+.seccao-intro { color: var(--carvao-2); margin-top: 12px; max-width: 540px; }
+
+/* ───────── Especialidades ───────── */
+.espec-dica { font-size: .8rem; font-style: italic; color: var(--carvao-2); margin-top: 8px; }
+.espec-grid {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 80%;
+  gap: 14px; margin: 18px -20px 0; padding: 4px 20px 14px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none;
+}
+.espec-grid::-webkit-scrollbar { display: none; }
+.espec-card {
+  scroll-snap-align: center;
+  background: var(--branco); border: 1px solid var(--linha);
+  border-top: 3px solid var(--ouro);
+  border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra);
+}
+.espec-foto { position: relative; aspect-ratio: 16 / 10; background: var(--pedra-2); }
+.espec-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.espec-foto-ph {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  color: #A99E89; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em;
+  background: repeating-linear-gradient(45deg, #ECE5D6 0 10px, #E6DECD 10px 20px);
+}
+.espec-foto-ph svg { width: 30px; height: 30px; opacity: .7; }
+.espec-info { padding: 16px 18px 20px; }
+.espec-info h3 { font-family: var(--fonte-display); font-weight: 700; font-size: 1.1rem; letter-spacing: .02em; color: var(--carvao); }
+.espec-ph-desc { color: var(--carvao-2); margin-top: 6px; }
+
+/* ───────── Ementa ───────── */
+.ementa-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 22px; }
+.tab-btn {
+  font-family: var(--fonte-display); font-size: .85rem; font-weight: 600; letter-spacing: .03em;
+  color: var(--carvao-2); background: transparent;
+  border: 1.5px solid var(--linha); border-radius: var(--raio);
+  padding: 8px 16px; cursor: pointer; transition: all .15s ease;
+}
+.tab-btn:hover { border-color: var(--vinho); color: var(--vinho); }
+.tab-btn.ativo { background: var(--vinho); border-color: var(--vinho); color: #fff; }
+.categoria-lista { display: none; }
+.categoria-lista.ativa { display: block; }
+.prato-item {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 14px 0; border-bottom: 1px dashed var(--linha);
+}
+.prato-nome { font-family: var(--fonte-display); font-weight: 600; font-size: 1rem; letter-spacing: .02em; color: var(--carvao); }
+.badge-meia {
+  font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--vinho); background: #F0E2E1; padding: 2px 7px; border-radius: 999px; margin-left: 6px; vertical-align: middle;
+}
+.prato-desc { color: var(--carvao-2); font-size: .92rem; margin-top: 2px; }
+.prato-preco { font-family: var(--fonte-display); font-weight: 600; color: var(--carvao); white-space: nowrap; }
+.preco-ph { font-family: var(--fonte-corpo); font-weight: 500; font-size: .82rem; color: #A89C86; font-style: italic; }
+.vinhos-nota { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--linha); color: var(--carvao-2); font-style: italic; }
+
+/* ───────── Reservas ───────── */
+.seccao-reservas { background: var(--vinho); }
+.seccao-reservas .seccao-titulo { color: var(--branco); }
+.seccao-reservas .seccao-etiqueta { color: var(--ouro-cl); }
+.reservas-box { text-align: center; max-width: 560px; margin-inline: auto; }
+.reservas-box p { color: rgba(255,255,255,.9); margin: 14px 0 24px; }
+.seccao-reservas .btn-primario { background: var(--ouro); color: var(--carvao); }
+.seccao-reservas .btn-primario:hover { background: var(--ouro-cl); }
+
+/* ───────── Localização ───────── */
+.local-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 28px; }
+.morada { font-style: normal; font-size: 1.02rem; line-height: 1.8; color: var(--carvao); }
+.local-sub { font-family: var(--fonte-display); font-weight: 700; font-size: 1.1rem; letter-spacing: .03em; margin: 22px 0 10px; }
+.local-aconfirmar {
+  color: var(--carvao-2); font-style: italic;
+  background: var(--branco); border: 1px solid var(--linha); border-left: 3px solid var(--ouro);
+  border-radius: var(--raio); padding: 18px 20px;
+}
+.horarios-tabela { width: 100%; border-collapse: collapse; }
+.horarios-tabela td { padding: 9px 0; border-bottom: 1px solid var(--linha); font-size: .92rem; }
+.horarios-tabela td:last-child { text-align: right; color: var(--carvao-2); }
+.horarios-tabela tr.hoje td { font-weight: 700; color: var(--vinho); }
+.horarios-tabela td.fechado { color: var(--granito); font-style: italic; }
+.horario-servicos { margin-top: 10px; font-size: .82rem; font-style: italic; color: var(--carvao-2); }
+.local-mapa {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--raio); overflow: hidden;
+  border: 1px solid var(--linha); box-shadow: var(--sombra);
+}
+.local-mapa iframe { display: block; }
+
+/* ───────── Rodapé ───────── */
+.rodape { background: var(--granito-2); color: #D9D1C4; padding: 44px 0 28px; }
+.rodape a { color: #E8DFD0; }
+.rodape-grid { display: grid; grid-template-columns: 1fr; gap: 26px; }
+.rodape-nome { font-family: var(--fonte-display); font-weight: 700; font-size: 1.3rem; letter-spacing: .04em; color: #fff; }
+.rodape-tipo { color: #ABA192; font-size: .9rem; margin: 4px 0 8px; }
+.rodape-links { display: flex; flex-direction: column; gap: 10px; }
+.rodape-links a { text-decoration: none; }
+.rodape-links a:hover { text-decoration: underline; }
+.rodape-fim { margin-top: 30px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-direction: column; gap: 6px; }
+.rodape-priv { font-size: .8rem; color: #938A7B; }
+.rodape-credito { font-size: .8rem; color: #756C5D; }
+
+/* ============================================================
+   BARRA STICKY MOBILE
+   ============================================================ */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+  display: flex; background: var(--branco); border-top: 1px solid var(--linha);
+  box-shadow: 0 -2px 16px rgba(43,38,34,.12); padding-bottom: env(safe-area-inset-bottom);
+}
+.sticky-bar a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; min-height: 56px; padding: 8px 4px; text-decoration: none;
+  color: var(--carvao); font-size: .72rem; font-weight: 600; transition: background .15s ease;
+}
+.sticky-bar a:active { background: rgba(43,38,34,.06); }
+.sticky-bar a:first-child { background: var(--vinho); color: #fff; }
+.sticky-bar a:first-child:active { background: var(--vinho-esc); }
+
+/* ============================================================
+   DESKTOP / TABLET
+   ============================================================ */
+@media (min-width: 720px) {
+  .hero { min-height: 0; display: block; padding: 84px 20px 280px; }
+  .hero-cena { height: 240px; bottom: 0; }
+  .hero-scroll { display: none; }
+  .espec-dica { display: none; }
+  .espec-grid {
+    grid-auto-flow: row; grid-auto-columns: auto;
+    grid-template-columns: repeat(3, 1fr); gap: 22px;
+    margin: 28px 0 0; padding: 0; overflow: visible; scroll-snap-type: none;
+  }
+  .local-grid { grid-template-columns: 1fr 1.1fr; align-items: start; }
+  .rodape-grid { grid-template-columns: 1fr auto; }
+  .rodape-fim { flex-direction: row; justify-content: space-between; }
+  .seccao { padding: 78px 0; }
+  body { padding-bottom: 0; }
+  .sticky-bar { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  .hero-scroll { animation: none; }
+}
+
+/* ============================================================
+   IMPRESSÃO
+   ============================================================ */
+.cat-titulo-print { display: none; }
+@media print {
+  .sticky-bar, .hero-scroll, .hero-ceu, .divisor-ameias, .skip-link,
+  .espec-dica, .ementa-tabs, .hero-acoes, .seccao-reservas, .hero-nota { display: none !important; }
+  body { padding: 0; background: #fff; color: #000; }
+  .hero { min-height: 0; padding: 24px 0 8px; }
+  .seccao { padding: 14px 0; }
+  .categoria-lista { display: block !important; margin-top: 10px; }
+  .cat-titulo-print {
+    display: block; font-family: var(--fonte-display); font-weight: 700;
+    font-size: 1.1rem; margin: 14px 0 4px; border-bottom: 1px solid #000; padding-bottom: 3px;
+  }
+  .js-reveal .revelar { opacity: 1 !important; transform: none !important; }
+  a { color: #000; text-decoration: none; }
+}
