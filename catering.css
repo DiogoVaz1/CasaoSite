@@ -1,0 +1,236 @@
+/* ============================================================
+   Catering - álbuns de fotos (estilo "Álbuns" do iPhone)
+   Usa as variáveis de cor de portal.css.
+   ============================================================ */
+body.cat-pagina {
+  font-family: var(--fonte-corpo);
+  color: var(--carvao);
+  background: var(--cal);
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ───────── Barra de topo ───────── */
+.cat-topo {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 12px;
+  background: rgba(246,243,236,.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(43,38,34,.08);
+}
+.cat-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--azul);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 8px 8px 8px 2px;
+  border-radius: 8px;
+}
+.cat-voltar:hover { color: var(--azul-esc); }
+.cat-voltar:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+.cat-topo-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.cat-pagina.em-album .cat-topo-titulo { opacity: 1; }
+
+/* ───────── Conteúdo ───────── */
+.cat-main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 56px;
+}
+.cat-etiqueta {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--barro);
+}
+.cat-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  line-height: 1;
+  margin-top: 6px;
+}
+.cat-intro {
+  color: var(--carvao-2);
+  line-height: 1.55;
+  max-width: 460px;
+  margin-top: 10px;
+}
+
+/* ───────── Álbuns (capas quadradas + título + n.º de fotos) ───────── */
+.cat-grelha-albuns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 14px;
+  margin-top: 26px;
+}
+@media (min-width: 600px)  { .cat-grelha-albuns { grid-template-columns: repeat(3, 1fr); gap: 28px 18px; } }
+@media (min-width: 900px)  { .cat-grelha-albuns { grid-template-columns: repeat(4, 1fr); } }
+
+.cat-album-cartao {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cat-capa {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--cal);
+  box-shadow: 0 1px 2px rgba(43,38,34,.12), 0 6px 16px rgba(43,38,34,.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cat-album-cartao:hover .cat-capa { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(43,38,34,.12), 0 10px 22px rgba(43,38,34,.12); }
+.cat-album-cartao:active .cat-capa { transform: scale(.97); }
+.cat-album-cartao:focus-visible { outline: none; }
+.cat-album-cartao:focus-visible .cat-capa { outline: 3px solid var(--azul); outline-offset: 3px; }
+.cat-capa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cat-album-nome {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: .98rem;
+  line-height: 1.25;
+}
+.cat-album-qtd { color: var(--carvao-2); font-size: .88rem; margin-top: 1px; }
+
+/* Placeholder de foto (sem imagem real) */
+.cat-ph {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,.7);
+}
+.cat-ph svg { width: 34%; max-width: 44px; height: auto; }
+
+/* ───────── Fotos de um álbum (grelha compacta) ───────── */
+.cat-album-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  line-height: 1.05;
+}
+.cat-album-conta { color: var(--carvao-2); margin-top: 6px; font-size: .95rem; }
+.cat-grelha-fotos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin: 18px -16px 0;
+}
+@media (min-width: 600px) {
+  .cat-grelha-fotos { grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 18px 0 0; }
+}
+@media (min-width: 900px) { .cat-grelha-fotos { grid-template-columns: repeat(5, 1fr); } }
+
+.cat-foto {
+  aspect-ratio: 1;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--carvao-2);
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cat-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease, opacity .25s ease; }
+.cat-foto:hover img { transform: scale(1.04); }
+.cat-foto:focus-visible { outline: 3px solid var(--azul); outline-offset: -3px; }
+
+/* ───────── Foto em ecrã inteiro ───────── */
+.cat-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(15,12,10,.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+}
+.cat-lb[hidden] { display: none; }
+.cat-lb-palco {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 56px 12px;
+}
+.cat-lb-palco img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+}
+.cat-lb-palco .cat-ph {
+  width: min(86vw, 70vh);
+  height: min(86vw, 70vh);
+  border-radius: 10px;
+}
+.cat-lb-btn {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background .15s ease;
+}
+.cat-lb-btn:hover { background: rgba(255,255,255,.26); }
+.cat-lb-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.cat-lb-fechar { top: 12px; right: 12px; }
+.cat-lb-ant, .cat-lb-seg { top: 50%; transform: translateY(-50%); }
+.cat-lb-ant { left: 12px; }
+.cat-lb-seg { right: 12px; }
+.cat-lb-conta {
+  position: absolute;
+  bottom: 16px;
+  left: 0; right: 0;
+  text-align: center;
+  color: rgba(255,255,255,.75);
+  font-size: .9rem;
+}
+/* Em ecrãs táteis navega-se a deslizar: setas escondidas */
+@media (hover: none) { .cat-lb-ant, .cat-lb-seg { display: none; } }
+
+.cat-pagina.lb-aberta { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-capa, .cat-foto img, .cat-topo-titulo { transition: none; }
+}

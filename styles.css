@@ -1,5 +1,5 @@
 /* ============================================================
-   O Casão — Direção "Cal e Barra"
+   O Casão - Direção "Cal e Barra"
    Paleta ancorada nas casas caiadas alentejanas:
    cal branca, barra azul pintada, trigo/ocre da planície, barro.
    ============================================================ */
@@ -95,7 +95,7 @@ a { color: var(--azul); }
 .seccao-reservas .btn-whatsapp:hover { background: #178A44; }
 
 /* ============================================================
-   HERO — planície alentejana ilustrada (sem foto real ainda)
+   HERO - planície alentejana ilustrada (sem foto real ainda)
    ============================================================ */
 .hero {
   position: relative;
@@ -168,7 +168,7 @@ a { color: var(--azul); }
 }
 .hero-badge-linha { margin-top: 22px; }
 
-/* Indicador "deslize" — convida ao scroll (sensação de ecrã cheio) */
+/* Indicador "deslize" - convida ao scroll (sensação de ecrã cheio) */
 .hero-scroll {
   position: absolute;
   left: 50%;
@@ -212,7 +212,7 @@ a { color: var(--azul); }
 .badge-fechado { background: #F1E3DF; color: #9A4630; }
 
 /* ============================================================
-   REVELAÇÃO NO SCROLL — fade + subida suave
+   REVELAÇÃO NO SCROLL - fade + subida suave
    Gate .js-reveal: só esconde quando o JS está ativo (sem flash,
    e sem JS o conteúdo fica sempre visível).
    ============================================================ */
@@ -234,7 +234,7 @@ a { color: var(--azul); }
 }
 
 /* ============================================================
-   BARRA CAL — elemento assinatura (rodapé pintado das casas)
+   BARRA CAL - elemento assinatura (rodapé pintado das casas)
    ============================================================ */
 .barra-cal {
   height: 14px;
@@ -571,7 +571,7 @@ a { color: var(--azul); }
 }
 
 /* ============================================================
-   IMPRESSÃO — ementa imprimível (cliente pode imprimir/PDF)
+   IMPRESSÃO - ementa imprimível (cliente pode imprimir/PDF)
    ============================================================ */
 .cat-titulo-print { display: none; }
 

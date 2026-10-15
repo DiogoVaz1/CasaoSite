@@ -1,4 +1,4 @@
-/* app.js — O Casão */
+/* app.js - O Casão */
 (function () {
   'use strict';
 
@@ -102,7 +102,7 @@
         </div>
         <div class="espec-info">
           <h3>${escHtml(nome)}</h3>
-          <p class="espec-ph-desc">—</p>
+          <p class="espec-ph-desc">-</p>
         </div>`;
       grid.appendChild(card);
     });
@@ -133,7 +133,7 @@
       lista.className = 'categoria-lista' + (i === 0 ? ' ativa' : '');
       lista.setAttribute('role', 'tabpanel');
 
-      // Título de categoria — só visível na impressão (no ecrã usam-se as tabs)
+      // Título de categoria - só visível na impressão (no ecrã usam-se as tabs)
       const tit = document.createElement('h3');
       tit.className = 'cat-titulo-print';
       tit.textContent = cat;
@@ -193,7 +193,7 @@
       const autor = r.autor ? r.autor.split(' ')[0] : 'Google Review';
       card.innerHTML =
         `<p class="review-texto">"${escHtml(r.texto)}"</p>` +
-        `<p class="review-autor">— ${escHtml(autor)}</p>`;
+        `<p class="review-autor">- ${escHtml(autor)}</p>`;
       grid.appendChild(card);
     });
   }
@@ -269,7 +269,7 @@
       return r.top < window.innerHeight * 0.92 && r.bottom > 0;
     };
     // Pequeno atraso para garantir que o estado inicial (opacity 0) é
-    // pintado antes de animar — funciona mesmo quando rAF não corre.
+    // pintado antes de animar - funciona mesmo quando rAF não corre.
     setTimeout(() => {
       els.forEach(el => { if (naDobra(el)) revelar(el); else io.observe(el); });
     }, 60);

@@ -1,5 +1,5 @@
 /* ============================================================
-   Portal "Os nossos espaços" — Catering · O Casão · O Castelo
+   Portal "Os nossos espaços" - Catering · O Casão · O Castelo
    Mesma identidade "Cal e Barra" do site do Casão.
    ============================================================ */
 :root {
@@ -85,7 +85,7 @@ body.portal {
 }
 .painel + .painel { border-left: 2px solid var(--cal); }
 
-/* Fundo (placeholder em gradiente — trocar por foto: definir --bg com url(...)) */
+/* Fundo (placeholder em gradiente - trocar por foto: definir --bg com url(...)) */
 .painel-fundo {
   position: absolute;
   inset: 0;

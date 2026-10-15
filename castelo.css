@@ -1,5 +1,5 @@
 /* ============================================================
-   O Castelo — Direção "Pedra e Ameias"
+   O Castelo - Direção "Pedra e Ameias"
    Castelo alentejano caiado (estilo Pousada de Alvito):
    cal-pedra branca, granito, vinho/borgonha nobre, ouro velho.
    ============================================================ */
@@ -9,9 +9,9 @@
   --pedra-2:  #DED5C3;
   --granito:  #6E655A;  /* pedra de cunhal / granito */
   --granito-2:#4A443C;
-  --vinho:    #6E2433;  /* borgonha — cor nobre, primária */
+  --vinho:    #6E2433;  /* borgonha - cor nobre, primária */
   --vinho-esc:#551B27;
-  --ouro:     #B08A3E;  /* ouro velho / latão — acento */
+  --ouro:     #B08A3E;  /* ouro velho / latão - acento */
   --ouro-cl:  #CDA85A;
   --carvao:   #2B2622;
   --carvao-2: #5C544B;
@@ -66,7 +66,7 @@ a { color: var(--vinho); }
 .btn-secundario:hover { background: rgba(110,36,51,.08); }
 
 /* ============================================================
-   HERO — castelo caiado com torres ameiadas
+   HERO - castelo caiado com torres ameiadas
    ============================================================ */
 .hero {
   position: relative; overflow: hidden;
@@ -160,7 +160,7 @@ a { color: var(--vinho); }
 }
 
 /* ============================================================
-   FAIXA DE AMEIAS — elemento assinatura (divisor de secções)
+   FAIXA DE AMEIAS - elemento assinatura (divisor de secções)
    ============================================================ */
 .divisor-ameias {
   height: 20px;

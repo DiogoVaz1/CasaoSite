@@ -1,4 +1,4 @@
-// Dados d'O Castelo — placeholders até o cliente fornecer o conteúdo real.
+// Dados d'O Castelo - placeholders até o cliente fornecer o conteúdo real.
 // Mesma forma do DADOS do Casão, reutilizando o app.js.
 const DADOS = {
   nome: "O Castelo",
@@ -27,7 +27,7 @@ const DADOS = {
   reviews: [],                    // a confirmar
   historia: null,
   reservasGrupos: true,
-  // Placeholders de curso (não são pratos inventados) — só para mostrar o estilo
+  // Placeholders de curso (não são pratos inventados) - só para mostrar o estilo
   destaques: [
     "Entrada a confirmar",
     "Prato principal a confirmar",

@@ -1,4 +1,4 @@
-// Gerado a partir de dados-casao.json — editar o JSON fonte, não este ficheiro
+// Gerado a partir de dados-casao.json - editar o JSON fonte, não este ficheiro
 const DADOS = {
   nome: "O Casão",
   tipo: "Restaurante de cozinha alentejana",

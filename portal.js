@@ -1,4 +1,4 @@
-/* portal.js — seleção em ecrãs tácteis
+/* portal.js - seleção em ecrãs tácteis
    Os 3 painéis preenchem o ecrã (sem scroll). Tocar num painel seleciona-o
    (ganha cor, os outros ficam dim); tocar no painel já selecionado entra.
    No desktop com rato, o efeito é :hover (CSS) e isto fica inativo. */
