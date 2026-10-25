@@ -4,10 +4,11 @@
 (function () {
   'use strict';
 
+  // mesma ordem da página inicial (index.html)
   const ESPACOS = [
+    { href: 'catering.html', nome: 'Catering' },
     { href: 'casao.html',    nome: 'O Casão' },
-    { href: 'castelo.html',  nome: 'O Castelo' },
-    { href: 'catering.html', nome: 'Catering' }
+    { href: 'castelo.html',  nome: 'O Castelo' }
   ];
 
   // página atual, com ou sem ".html" (o servidor pode remover a extensão)
