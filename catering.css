@@ -73,9 +73,97 @@ body.cat-pagina {
 .cat-intro {
   color: var(--carvao-2);
   line-height: 1.55;
-  max-width: 460px;
+  max-width: 520px;
   margin-top: 10px;
 }
+
+/* ───────── Apresentação ───────── */
+.cat-hero {
+  padding: 28px 22px 26px;
+  border-radius: 28px;
+  background:
+    radial-gradient(120% 120% at 100% 0%, rgba(227,192,106,.55), transparent 60%),
+    linear-gradient(150deg, #FBF3DE, var(--branco));
+  border: 1px solid rgba(43,38,34,.06);
+  box-shadow: 0 1px 2px rgba(43,38,34,.06), 0 12px 30px rgba(43,38,34,.07);
+}
+@media (min-width: 700px) { .cat-hero { padding: 40px 40px 36px; } }
+.cat-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--azul);
+  color: var(--azul);
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: .96rem;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+.cat-btn:hover { background: rgba(30,90,120,.08); }
+.cat-btn:active { transform: scale(.97); }
+.cat-btn:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+.cat-btn-cheio { background: var(--azul); color: #fff; }
+.cat-btn-cheio:hover { background: var(--azul-esc); }
+
+.cat-sec-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 5.5vw, 2rem);
+  line-height: 1.1;
+  margin-top: 36px;
+}
+.cat-sec-sub { color: var(--carvao-2); margin-top: 6px; font-size: .95rem; }
+
+/* ───────── Contactos e localização ───────── */
+.cat-contactos {
+  display: grid;
+  gap: 22px;
+  margin-top: 48px;
+  padding: 24px 20px;
+  border-radius: 28px;
+  background: var(--branco);
+  border: 1px solid rgba(43,38,34,.06);
+  box-shadow: 0 1px 2px rgba(43,38,34,.06), 0 12px 30px rgba(43,38,34,.07);
+  scroll-margin-top: 68px;
+}
+.cat-contactos .cat-sec-titulo { margin-top: 6px; }
+@media (min-width: 800px) {
+  .cat-contactos { grid-template-columns: 1fr 1fr; gap: 32px; padding: 34px; align-items: stretch; }
+}
+.cat-lista { list-style: none; margin: 20px 0 22px; display: grid; gap: 16px; }
+.cat-lista li { display: flex; gap: 14px; align-items: flex-start; }
+.cat-icone {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(30,90,120,.1);
+  color: var(--azul);
+}
+.cat-lista-rot {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--carvao-2);
+  margin-bottom: 2px;
+}
+.cat-lista a { color: var(--azul); font-weight: 600; word-break: break-word; }
+.cat-lista address { font-style: normal; line-height: 1.45; font-weight: 600; }
+.cat-mapa {
+  min-height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--cal);
+}
+.cat-mapa iframe { display: block; width: 100%; height: 100%; min-height: 280px; }
 
 /* ───────── Álbuns (capas quadradas + título + n.º de fotos) ───────── */
 .cat-grelha-albuns {
@@ -102,7 +190,7 @@ body.cat-pagina {
 .cat-capa {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 14px;
+  border-radius: 24px;
   overflow: hidden;
   background: var(--cal);
   box-shadow: 0 1px 2px rgba(43,38,34,.12), 0 6px 16px rgba(43,38,34,.08);
@@ -141,13 +229,12 @@ body.cat-pagina {
 .cat-album-conta { color: var(--carvao-2); margin-top: 6px; font-size: .95rem; }
 .cat-grelha-fotos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin: 18px -16px 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 20px 0 0;
 }
-@media (min-width: 600px) {
-  .cat-grelha-fotos { grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 18px 0 0; }
-}
+@media (min-width: 520px) { .cat-grelha-fotos { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 700px) { .cat-grelha-fotos { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
 @media (min-width: 900px) { .cat-grelha-fotos { grid-template-columns: repeat(5, 1fr); } }
 
 .cat-foto {
@@ -157,13 +244,14 @@ body.cat-pagina {
   padding: 0;
   border: 0;
   background: var(--carvao-2);
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 .cat-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease, opacity .25s ease; }
 .cat-foto:hover img { transform: scale(1.04); }
-.cat-foto:focus-visible { outline: 3px solid var(--azul); outline-offset: -3px; }
+.cat-foto:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
 
 /* ───────── Foto em ecrã inteiro ───────── */
 .cat-lb {
@@ -189,12 +277,12 @@ body.cat-pagina {
   max-height: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 .cat-lb-palco .cat-ph {
   width: min(86vw, 70vh);
   height: min(86vw, 70vh);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 .cat-lb-btn {
   position: absolute;

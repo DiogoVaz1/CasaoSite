@@ -112,6 +112,14 @@
 
   window.addEventListener('hashchange', mostrar);
 
+  /* "Onde trabalhamos": rola até aos contactos sem mexer no hash (que é dos álbuns) */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href="#cat-contactos"]');
+    if (!a) return;
+    e.preventDefault();
+    $('cat-contactos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
   /* ── Foto em ecrã inteiro ────────────────────────────────── */
   const lb      = $('cat-lb');
   const palco   = $('cat-lb-palco');
