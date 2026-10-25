@@ -242,6 +242,13 @@ a { color: var(--vinho); }
 .prato-desc { color: var(--carvao-2); font-size: .92rem; margin-top: 2px; }
 .prato-preco { font-family: var(--fonte-display); font-weight: 600; color: var(--carvao); white-space: nowrap; }
 .preco-ph { font-family: var(--fonte-corpo); font-weight: 500; font-size: .82rem; color: #A89C86; font-style: italic; }
+.prato-grupo {
+  font-family: var(--fonte-display); font-weight: 700; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--vinho); margin: 22px 0 0; padding-bottom: 2px;
+}
+.prato-grupo:first-of-type { margin-top: 0; }
+.prato-grupo + .prato-item { padding-top: 8px; }
+.categoria-nota { margin-top: 16px; color: var(--carvao-2); font-style: italic; }
 .vinhos-nota { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--linha); color: var(--carvao-2); font-style: italic; }
 
 /* ───────── Reservas ───────── */

@@ -139,7 +139,17 @@
       tit.textContent = cat;
       lista.appendChild(tit);
 
+      let grupoAtual = null;
       DADOS.ementa[cat].forEach(p => {
+        // subtítulo opcional (ex.: produtor dos vinhos), só quando muda
+        if (p.grupo && p.grupo !== grupoAtual) {
+          grupoAtual = p.grupo;
+          const g = document.createElement('h4');
+          g.className = 'prato-grupo';
+          g.textContent = p.grupo;
+          lista.appendChild(g);
+        }
+
         const item = document.createElement('div');
         item.className = 'prato-item';
 
@@ -160,14 +170,25 @@
         lista.appendChild(item);
       });
 
+      // nota opcional no fim da categoria (ex.: acompanhamentos)
+      const nota = DADOS.ementaNotas && DADOS.ementaNotas[cat];
+      if (nota) {
+        const n = document.createElement('p');
+        n.className = 'categoria-nota';
+        n.textContent = nota;
+        lista.appendChild(n);
+      }
+
       conteudo.appendChild(lista);
     });
 
-    // Nota sobre vinhos
-    const vNota = document.createElement('p');
-    vNota.className = 'vinhos-nota';
-    vNota.textContent = 'Vinhos regionais alentejanos · carta disponível no restaurante';
-    conteudo.appendChild(vNota);
+    // Nota sobre vinhos (DADOS.notaVinhos === null esconde-a)
+    if (DADOS.notaVinhos !== null) {
+      const vNota = document.createElement('p');
+      vNota.className = 'vinhos-nota';
+      vNota.textContent = DADOS.notaVinhos || 'Vinhos regionais alentejanos · carta disponível no restaurante';
+      conteudo.appendChild(vNota);
+    }
   }
 
   function activateTab(cat) {
