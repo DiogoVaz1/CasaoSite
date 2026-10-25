@@ -11,7 +11,7 @@ const DADOS = {
   redes: null,
   morada: { rua: null, cp: null, localidade: "Alvito" },   // rua/CP exatos a confirmar
   gps: { lat: 38.2577626, lng: -7.9921249 },               // Castelo de Alvito
-  googleMapsUrl: "https://www.google.com/maps/place/Pousada+Castelo+de+Alvito/@38.2577626,-7.9921249,17z",
+  googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Pousada+Castelo+de+Alvito+Alvito",
   rating: null,                   // a confirmar
   // Pequeno-almoço 08:00–10:00 · almoço 12:30–15:00 · jantar 19:30–22:00
   // Folga: domingo ao jantar, segunda e terça todo o dia.

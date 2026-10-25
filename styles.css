@@ -88,6 +88,7 @@ a { color: var(--azul); }
   border-color: var(--azul);
 }
 .btn-secundario:hover { background: rgba(30, 90, 120, .08); }
+.btn-maps { margin-top: 22px; }
 .btn-whatsapp { background: #1FA855; color: #fff; }
 .btn-whatsapp:hover { background: #178A44; }
 .reservas-wa { margin-top: 12px; }
