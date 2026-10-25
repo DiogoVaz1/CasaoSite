@@ -13,6 +13,17 @@ Para manter tudo organizado e rápido, **as alterações são pedidas por um ún
 
 Não precisa de perceber nada de informática. Eu trato do resto.
 
+## Como adicionar fotos ao Catering
+
+As fotos dos álbuns são geridas no **Cloudinary** (cloudinary.com → Media Library). Cada álbum é uma pasta dentro de `catering`:
+
+1. Entrar no Cloudinary → **Assets** → pasta **catering**.
+2. Para um álbum novo: criar uma pasta nova dentro de `catering` (o nome da pasta é o título do álbum, ex.: *Casamentos*).
+3. Arrastar as fotos para a pasta (ou **Upload**). Funciona também pela app no telemóvel.
+4. Em poucos minutos o site mostra as fotos novas. A primeira foto (por ordem de nome) é a capa do álbum.
+
+Dicas: para escolher a ordem dos álbuns, começar o nome por um número (*01 - Casamentos*, *02 - Batizados*); o número não aparece no site. Para apagar uma foto, apagá-la no Cloudinary.
+
 ## O que a avença inclui
 
 - Atualizações de **ementa, preços e horários** sempre que precisar.

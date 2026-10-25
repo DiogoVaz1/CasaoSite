@@ -1,9 +1,10 @@
 /* catering.js - álbuns de fotos do Catering
-   Fonte de dados: window.CATERING_ALBUNS (catering-dados.js). */
+   Fonte de dados: /api/albuns (Cloudinary). Se a API não responder
+   (ex.: servidor local), usa window.CATERING_ALBUNS (catering-dados.js). */
 (function () {
   'use strict';
 
-  const ALBUNS = window.CATERING_ALBUNS || [];
+  let ALBUNS = [];
 
   const $ = id => document.getElementById(id);
   const corpo     = document.body;
@@ -175,6 +176,18 @@
     if (Math.abs(dx) > 50) passar(dx < 0 ? 1 : -1);
   });
 
-  renderAlbuns();
-  mostrar();
+  async function carregar() {
+    grelhaA.innerHTML = '<p class="cat-intro">A carregar álbuns…</p>';
+    try {
+      const r = await fetch('/api/albuns');
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      ALBUNS = await r.json();
+    } catch (e) {
+      ALBUNS = window.CATERING_ALBUNS || [];
+    }
+    renderAlbuns();
+    mostrar();
+  }
+
+  carregar();
 })();
