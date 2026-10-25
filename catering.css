@@ -253,6 +253,18 @@ body.cat-pagina {
 .cat-foto:hover img { transform: scale(1.04); }
 .cat-foto:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
 
+/* ───────── Rodapé ───────── */
+.cat-rodape {
+  margin-top: 8px;
+  padding: 30px 16px 26px;
+  text-align: center;
+  background: var(--carvao);
+  color: #D9D1C4;
+}
+.cat-rodape .espacos-rodape { margin: 0 0 18px; }
+.cat-rodape .espacos { margin-inline: auto; }
+.cat-rodape-credito { font-size: .8rem; color: #8E8576; }
+
 /* ───────── Foto em ecrã inteiro ───────── */
 .cat-lb {
   position: fixed;

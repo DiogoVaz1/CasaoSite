@@ -1,0 +1,67 @@
+/* ============================================================
+   Seletor de espaços (O Casão · O Castelo · Catering)
+   Partilhado pelas três páginas. Cores próprias (não depende
+   das variáveis de cada página).
+   ============================================================ */
+.espacos {
+  display: flex;
+  gap: 2px;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  margin: 10px auto;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(43,38,34,.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(43,38,34,.18);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.espacos a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #E8DFD0;
+  font-size: .86rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .15s ease, color .15s ease;
+}
+.espacos a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.espacos a:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+.espacos a[aria-current="page"] { background: #F6F3EC; color: #2B2622; }
+@media (max-width: 380px) { .espacos a { padding: 0 11px; font-size: .82rem; } }
+
+/* No topo do Casão e do Castelo flutua por cima do cabeçalho (sem empurrar o conteúdo) */
+body:not(.cat-pagina) > .espacos {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px 0 0;
+  z-index: 30;
+}
+
+/* No rodapé (fundo escuro) */
+.espacos-rodape { margin: 28px auto 26px; }
+.espacos-rodape .espacos {
+  margin: 0;
+  background: rgba(255,255,255,.08);
+  box-shadow: none;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.espacos-rodape-tit {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .68rem;
+  font-weight: 700;
+  color: #A89E8E;
+  margin-bottom: 10px;
+}
+
+@media print { .espacos, .espacos-rodape { display: none; } }
