@@ -1,0 +1,8 @@
+Tipos de letra usados neste site
+
+- Fraunces (fraunces-latin.woff2) - The Fraunces Project Authors (Undercase Type).
+- Cinzel (cinzel-latin.woff2) - The Cinzel Project Authors (Natanael Gama).
+
+Ambas sob a SIL Open Font License, Version 1.1 (https://openfontlicense.org),
+que permite usar, copiar e distribuir os ficheiros, incluindo em sites.
+Obtidas em Google Fonts (https://fonts.google.com).

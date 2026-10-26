@@ -23,12 +23,12 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Tipografia: 1 web font (display) com swap -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="espacos.css">
+  <link rel="stylesheet" href="mapa.css">
   <!-- Gate de animação: aplicado antes do paint para evitar flash. Sem JS, nada fica escondido. -->
   <script>document.documentElement.classList.add('js-reveal');</script>
 
@@ -239,11 +239,14 @@
             </a>
           </div>
           <div class="local-mapa">
-            <iframe
-              title="Mapa - O Casão, Vila Nova da Baronia"
-              src="https://www.google.com/maps?q=38.2906942,-8.0373915&hl=pt&z=16&output=embed"
-              width="100%" height="100%" style="border:0" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="mapa-ph"
+                 data-mapa-titulo="Mapa - O Casão, Vila Nova da Baronia"
+                 data-mapa-src="https://www.google.com/maps?q=38.2906942,-8.0373915&hl=pt&z=16&output=embed">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p class="mapa-ph-tit">Mapa da localização</p>
+              <p class="mapa-ph-nota">Ao mostrar o mapa, a Google recebe o seu endereço IP.</p>
+              <button type="button" class="mapa-ph-btn">Mostrar mapa</button>
+            </div>
           </div>
         </div>
       </div>
@@ -269,7 +272,7 @@
     </div>
     <div class="container" data-espacos></div>
     <div class="container rodape-fim">
-      <p class="rodape-priv">João Ramos Vaz Rest. e Eventos · NIF 519299191 · Rua de Beja n.º 30, Alvito · <a href="privacidade.html">Privacidade</a></p>
+      <p class="rodape-priv">João Ramos Vaz Rest. e Eventos · NIF 519299191 · Rua de Beja n.º 30, 7920-046 Alvito · <a href="privacidade.html">Privacidade</a></p>
       <p class="rodape-credito">Site por Diogo Vaz</p>
     </div>
   </footer>
@@ -289,5 +292,6 @@
   <script src="dados.js"></script>
   <script src="app.js"></script>
   <script src="espacos.js"></script>
+  <script src="mapa.js"></script>
 </body>
 </html>

@@ -8,12 +8,12 @@
   <meta name="theme-color" content="#1E5A78">
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,900&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="portal.css">
   <link rel="stylesheet" href="catering.css">
   <link rel="stylesheet" href="espacos.css">
+  <link rel="stylesheet" href="mapa.css">
 </head>
 <body class="cat-pagina">
 
@@ -92,11 +92,14 @@
         </div>
 
         <div class="cat-mapa">
-          <iframe
-            title="Mapa - Pousada Castelo de Alvito"
-            src="https://www.google.com/maps?q=38.2577626,-7.9921249&hl=pt&z=16&output=embed"
-            width="100%" height="100%" style="border:0" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="mapa-ph"
+               data-mapa-titulo="Mapa - Pousada Castelo de Alvito"
+               data-mapa-src="https://www.google.com/maps?q=38.2577626,-7.9921249&hl=pt&z=16&output=embed">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p class="mapa-ph-tit">Mapa da localização</p>
+            <p class="mapa-ph-nota">Ao mostrar o mapa, a Google recebe o seu endereço IP.</p>
+            <button type="button" class="mapa-ph-btn">Mostrar mapa</button>
+          </div>
         </div>
       </div>
 
@@ -113,7 +116,7 @@
 
   <footer class="cat-rodape">
     <div data-espacos></div>
-    <p class="cat-rodape-legal">João Ramos Vaz Rest. e Eventos · NIF 519299191<br>Rua de Beja n.º 30, Alvito</p>
+    <p class="cat-rodape-legal">João Ramos Vaz Rest. e Eventos · NIF 519299191<br>Rua de Beja n.º 30, 7920-046 Alvito</p>
     <p class="cat-rodape-legal">
       <a href="privacidade.html">Política de Privacidade</a> ·
       <a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener">Livro de Reclamações</a>
@@ -139,5 +142,6 @@
   <script src="catering-dados.js"></script>
   <script src="catering.js"></script>
   <script src="espacos.js"></script>
+  <script src="mapa.js"></script>
 </body>
 </html>

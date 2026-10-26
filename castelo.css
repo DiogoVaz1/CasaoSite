@@ -282,6 +282,9 @@ a { color: var(--vinho); }
   border: 1px solid var(--linha); box-shadow: var(--sombra);
 }
 .local-mapa iframe { display: block; }
+.local-mapa .mapa-ph-btn { background: var(--vinho); }
+.local-mapa .mapa-ph-btn:hover { background: var(--vinho-esc); }
+.local-mapa .mapa-ph-btn:focus-visible { outline-color: var(--vinho); }
 
 /* ───────── Rodapé ───────── */
 .rodape { background: var(--granito-2); color: #D9D1C4; padding: 44px 0 28px; }
