@@ -200,6 +200,7 @@ body.portal {
   background: var(--cal);
 }
 .portal-rodape span { color: #9a917f; }
+.portal-rodape a { color: inherit; }
 
 /* Desktop: portal ocupa o ecrã, sem scroll */
 @media (min-width: 720px) and (hover: hover) {

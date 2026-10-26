@@ -263,7 +263,10 @@ body.cat-pagina {
 }
 .cat-rodape .espacos-rodape { margin: 0 0 18px; }
 .cat-rodape .espacos { margin-inline: auto; }
-.cat-rodape-credito { font-size: .8rem; color: #8E8576; }
+.cat-rodape-legal { font-size: .82rem; line-height: 1.55; color: #B5AB9C; margin-bottom: 10px; }
+.cat-rodape-legal a { color: #E8DFD0; }
+.cat-rodape-credito { font-size: .8rem; color: #8E8576; margin-top: 4px; }
+.cat-nota-fotos { margin-top: 12px; color: var(--carvao-2); font-size: .88rem; line-height: 1.5; }
 
 /* ───────── Foto em ecrã inteiro ───────── */
 .cat-lb {
