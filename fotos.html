@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enviar fotos | Catering · O Casão</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1E5A78">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="fotos.css">
+</head>
+<body class="fotos-pagina">
+
+  <main class="fotos-main">
+    <p class="fotos-etiqueta">Área reservada · Catering</p>
+    <h1 class="fotos-titulo">Enviar fotos</h1>
+
+    <!-- 1. Palavra-passe -->
+    <form id="f-login" class="fotos-cartao" autocomplete="on">
+      <p class="fotos-ajuda">Escreva a palavra-passe para enviar fotos para o site.</p>
+      <label class="fotos-rotulo" for="f-senha">Palavra-passe</label>
+      <input class="fotos-campo" id="f-senha" type="password" autocomplete="current-password" required>
+      <p class="fotos-erro" id="f-login-erro" role="alert" hidden></p>
+      <button class="fotos-btn fotos-btn-cheio" type="submit" id="f-entrar">Entrar</button>
+    </form>
+
+    <!-- 2. Envio -->
+    <section id="f-app" hidden>
+      <div class="fotos-cartao">
+        <label class="fotos-rotulo" for="f-album">1. Em que álbum ficam as fotos?</label>
+        <select class="fotos-campo" id="f-album"></select>
+        <div id="f-novo-caixa" hidden>
+          <label class="fotos-rotulo" for="f-novo">Nome do álbum novo</label>
+          <input class="fotos-campo" id="f-novo" type="text" maxlength="60" placeholder="Ex.: Casamento da Ana" autocomplete="off">
+          <p class="fotos-nota">Só letras, números, espaços, hífen e ponto.</p>
+        </div>
+      </div>
+
+      <div class="fotos-cartao">
+        <p class="fotos-rotulo">2. Escolha as fotos</p>
+        <label class="fotos-btn fotos-btn-borda" for="f-ficheiros">Escolher fotos do telemóvel</label>
+        <input class="fotos-oculto" id="f-ficheiros" type="file" accept="image/*" multiple>
+        <p class="fotos-nota" id="f-contagem">Nenhuma foto escolhida.</p>
+        <ul class="fotos-lista" id="f-lista"></ul>
+      </div>
+
+      <button class="fotos-btn fotos-btn-cheio" type="button" id="f-enviar" disabled>Enviar fotos</button>
+      <p class="fotos-estado" id="f-estado" role="status" aria-live="polite"></p>
+
+      <button class="fotos-sair" type="button" id="f-sair">Sair</button>
+    </section>
+  </main>
+
+  <script src="fotos.js"></script>
+</body>
+</html>

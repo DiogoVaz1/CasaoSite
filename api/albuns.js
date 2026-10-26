@@ -36,6 +36,7 @@ function agrupar(recursos) {
     return {
       id: slug(tituloDe(nome)) || slug(nome),
       titulo: tituloDe(nome),
+      pasta: nome,                                // nome real da pasta (usado pela página de upload)
       capa: comTransf(pastas.get(nome)[0].secure_url, T_CAPA),
       fotos
     };

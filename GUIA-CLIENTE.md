@@ -15,14 +15,23 @@ Não precisa de perceber nada de informática. Eu trato do resto.
 
 ## Como adicionar fotos ao Catering
 
-As fotos dos álbuns são geridas no **Cloudinary** (cloudinary.com → Media Library). Cada álbum é uma pasta dentro de `catering`:
+### Pelo telemóvel (o mais simples)
 
-1. Entrar no Cloudinary → **Assets** → pasta **catering**.
-2. Para um álbum novo: criar uma pasta nova dentro de `catering` (o nome da pasta é o título do álbum, ex.: *Casamentos*).
-3. Arrastar as fotos para a pasta (ou **Upload**). Funciona também pela app no telemóvel.
-4. Em poucos minutos o site mostra as fotos novas. A primeira foto (por ordem de nome) é a capa do álbum.
+Abrir a página **/fotos** do site (ex.: `ocasao.pt/fotos`; não está ligada a nenhum botão, é uma página reservada).
 
-Dicas: para escolher a ordem dos álbuns, começar o nome por um número (*01 - Casamentos*, *02 - Batizados*); o número não aparece no site. Para apagar uma foto, apagá-la no Cloudinary.
+1. Escrever a palavra-passe.
+2. Escolher o álbum, ou **＋ Álbum novo…** e escrever o nome (ex.: *Casamento da Ana*; o nome é o título que aparece no site).
+3. Tocar em **Escolher fotos do telemóvel** e selecionar as fotos da galeria.
+4. Tocar em **Enviar fotos** e esperar que todas fiquem a verde. Se alguma falhar, tocar outra vez em **Enviar fotos**: só reenvia as que faltam.
+5. Em poucos minutos o site mostra as fotos novas. A primeira foto (por ordem de nome) é a capa do álbum.
+
+A palavra-passe fica guardada na Vercel (variável `UPLOAD_PASSWORD`); para a mudar, altera-se lá e faz-se novo deploy.
+
+### Pelo computador (Cloudinary), para apagar ou reorganizar
+
+As fotos ficam no **Cloudinary** (cloudinary.com → Media Library → pasta **catering**). Cada álbum é uma pasta. É aí que se **apagam** fotos ou álbuns e se mudam nomes (a página /fotos só adiciona).
+
+Dica: para escolher a ordem dos álbuns, começar o nome por um número (*01 - Casamentos*, *02 - Batizados*); o número não aparece no site.
 
 ## O que a avença inclui
 

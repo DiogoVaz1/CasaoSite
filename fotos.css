@@ -1,0 +1,117 @@
+/* ============================================================
+   Página de envio de fotos (/fotos) - pensada para telemóvel.
+   Usa as variáveis de cor de portal.css.
+   ============================================================ */
+body.fotos-pagina {
+  font-family: var(--fonte-corpo);
+  color: var(--carvao);
+  background: var(--cal);
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+}
+.fotos-main { max-width: 520px; margin: 0 auto; padding: 28px 16px 56px; }
+.fotos-etiqueta {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--barro);
+}
+.fotos-titulo {
+  font-family: var(--fonte-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 9vw, 2.8rem);
+  line-height: 1;
+  margin: 6px 0 20px;
+}
+
+.fotos-cartao {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  margin-bottom: 14px;
+  border-radius: 24px;
+  background: var(--branco);
+  border: 1px solid rgba(43,38,34,.06);
+  box-shadow: 0 1px 2px rgba(43,38,34,.06), 0 10px 26px rgba(43,38,34,.06);
+}
+.fotos-rotulo { font-weight: 700; font-size: 1rem; }
+.fotos-ajuda, .fotos-nota { color: var(--carvao-2); font-size: .92rem; line-height: 1.45; }
+.fotos-nota { font-size: .85rem; }
+.fotos-erro { color: #A3281C; font-weight: 600; }
+
+.fotos-campo {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1.5px solid rgba(43,38,34,.2);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--carvao);
+  font: inherit;
+  font-size: 1rem;          /* 16px: o iPhone não faz zoom ao tocar */
+}
+.fotos-campo:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+
+.fotos-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 2px solid var(--azul);
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.02rem;
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s ease, transform .15s ease, opacity .15s ease;
+}
+.fotos-btn:active { transform: scale(.98); }
+.fotos-btn:focus-visible, .fotos-oculto:focus-visible + .fotos-nota { outline: 3px solid var(--azul); outline-offset: 3px; }
+.fotos-btn-cheio { width: 100%; background: var(--azul); color: #fff; }
+.fotos-btn-cheio:hover { background: var(--azul-esc); }
+.fotos-btn-cheio:disabled { opacity: .45; cursor: default; }
+.fotos-btn-borda { background: transparent; color: var(--azul); }
+.fotos-btn-borda:hover { background: rgba(30,90,120,.08); }
+.fotos-oculto { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+.fotos-lista { list-style: none; display: grid; gap: 6px; }
+.fotos-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--cal);
+  font-size: .88rem;
+}
+.fotos-item-nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fotos-item-estado { color: var(--carvao-2); white-space: nowrap; }
+.fotos-item.ok .fotos-item-estado { color: #1D7A3F; font-weight: 700; }
+.fotos-item.erro .fotos-item-estado { color: #A3281C; font-weight: 700; }
+.fotos-barra { grid-column: 1 / -1; height: 5px; border-radius: 999px; background: rgba(43,38,34,.12); overflow: hidden; }
+.fotos-barra > span { display: block; height: 100%; width: 0; background: var(--azul); transition: width .15s linear; }
+.fotos-item.ok .fotos-barra > span { background: #1D7A3F; }
+.fotos-item.erro .fotos-barra > span { background: #A3281C; }
+
+.fotos-estado { margin-top: 14px; font-weight: 600; line-height: 1.45; }
+.fotos-estado.ok { color: #1D7A3F; }
+.fotos-estado.erro { color: #A3281C; }
+.fotos-sair {
+  display: block;
+  margin: 26px auto 0;
+  padding: 10px 16px;
+  background: none;
+  border: 0;
+  color: var(--carvao-2);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .fotos-btn, .fotos-barra > span { transition: none; } }
