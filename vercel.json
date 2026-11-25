@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/fotos",     "destination": "/fotos.html" },
     { "source": "/catering",  "destination": "/catering.html" },
+    { "source": "/planear",   "destination": "/planear.html" },
     { "source": "/casao",     "destination": "/casao.html" },
     { "source": "/castelo",   "destination": "/castelo.html" }
   ]

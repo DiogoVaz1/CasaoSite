@@ -12,7 +12,9 @@
   ];
 
   // página atual, com ou sem ".html" (o servidor pode remover a extensão)
-  const atual = location.pathname.split('/').pop().replace(/\.html$/, '');
+  // uma subpágina diz a que espaço pertence com <body data-espaco="...">
+  const atual = document.body.dataset.espaco ||
+                location.pathname.split('/').pop().replace(/\.html$/, '');
 
   function criar() {
     const nav = document.createElement('nav');

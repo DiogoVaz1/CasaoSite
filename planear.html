@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planear o evento | Catering</title>
+  <meta name="description" content="Marque o que quer no seu evento e envie-nos o pedido de orçamento de catering.">
+  <meta name="theme-color" content="#1E5A78">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="catering.css">
+  <link rel="stylesheet" href="espacos.css">
+  <link rel="stylesheet" href="planear.css">
+</head>
+<body class="cat-pagina plano-pagina" data-espaco="catering">
+
+  <header class="cat-topo">
+    <a class="cat-voltar" href="catering.html">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Catering
+    </a>
+  </header>
+
+  <main class="cat-main plano-main">
+    <p class="cat-etiqueta">Pedido de orçamento</p>
+    <h1 class="cat-titulo">Planear o evento</h1>
+    <p class="cat-intro">Marque o que gostava de ter. No fim envia-nos o pedido por email ou WhatsApp e respondemos com uma proposta. Nada fica reservado nem tem preço nesta fase.</p>
+
+    <noscript><p class="plano-aviso">Para usar o planeador é preciso ter o JavaScript ligado. Pode também ligar-nos: <a href="tel:+351964894175">+351 964 894 175</a>.</p></noscript>
+
+    <form id="plano-form" novalidate>
+      <div id="plano-grupos"></div>
+
+      <fieldset class="plano-cartao">
+        <legend>Pormenores</legend>
+        <p class="plano-ajuda">Preencha o que já souber. Tudo isto é opcional.</p>
+        <div class="plano-campos">
+          <label class="plano-campo">Data do evento
+            <input type="date" id="plano-data" name="data">
+          </label>
+          <label class="plano-campo">N.º de pessoas
+            <input type="number" id="plano-pessoas" name="pessoas" min="1" step="1" inputmode="numeric">
+          </label>
+          <label class="plano-campo plano-largo">Local do evento
+            <input type="text" id="plano-local" name="local" maxlength="120">
+          </label>
+          <label class="plano-campo plano-largo">O seu nome
+            <input type="text" id="plano-nome" name="nome" maxlength="80" autocomplete="name">
+          </label>
+          <label class="plano-campo plano-largo">Outros pedidos ou notas
+            <textarea id="plano-notas" name="notas" rows="3" maxlength="600" placeholder="Por exemplo: alergias, pratos preferidos, horário"></textarea>
+          </label>
+        </div>
+      </fieldset>
+
+      <section class="plano-cartao plano-resumo" aria-labelledby="plano-resumo-tit">
+        <h2 id="plano-resumo-tit">O seu pedido</h2>
+        <p class="plano-ajuda" id="plano-vazio">Ainda não marcou nenhuma opção.</p>
+        <pre class="plano-texto" id="plano-texto" hidden></pre>
+
+        <p class="plano-aviso" id="plano-aviso" role="status" aria-live="polite"></p>
+
+        <div class="plano-enviar">
+          <button type="button" class="cat-btn cat-btn-cheio" id="plano-email">Enviar por email</button>
+          <button type="button" class="cat-btn" id="plano-whatsapp">Enviar por WhatsApp</button>
+          <button type="button" class="cat-btn" id="plano-copiar">Copiar pedido</button>
+        </div>
+        <p class="plano-ajuda">O pedido abre na sua aplicação de email ou no WhatsApp, onde ainda tem de carregar em enviar. O site não guarda o que escreve. <a href="privacidade.html">Política de Privacidade</a></p>
+      </section>
+    </form>
+  </main>
+
+  <footer class="cat-rodape">
+    <div data-espacos></div>
+    <p class="cat-rodape-legal">João Ramos Vaz Restauração e Eventos · NIF 519299191<br>Rua de Beja n.º 30, 7920-046 Alvito</p>
+    <p class="cat-rodape-legal">
+      <a href="privacidade.html">Política de Privacidade</a> ·
+      <a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener">Livro de Reclamações</a>
+    </p>
+    <p class="cat-rodape-credito">Site por Diogo Vaz</p>
+  </footer>
+
+  <script src="planear-dados.js"></script>
+  <script src="planear.js"></script>
+  <script src="espacos.js"></script>
+</body>
+</html>
